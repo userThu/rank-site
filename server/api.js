@@ -92,6 +92,10 @@ router.get("/people", (req, res) => {
   Person.find({}).then((people) => res.send(people));
 });
 
+router.get("/missing-info", (req, res) => {
+
+})
+
 router.get("/person", (req, res) => {
   const query = {"_id": req.query.personid};
   Person.find(query).then((person) => res.send(person));
@@ -117,7 +121,19 @@ router.post("/comment", async (req, res) => {
         comment: req.body.comment
       });
 
-      newComment.save().then((comment) => res.send(comment));
+      newComment.save().then(async (comment) => {
+        const updatedPerson = await Person.findByIdAndUpdate(
+          req.body.personid,
+          {$inc: {commentCount: 1}},
+          {new: true}
+        );
+        
+        if (!updatedPerson) {
+          return res.status(404).send({ message: "Person not found" });
+        }
+
+        res.send(comment);
+      });
     } catch (error) {
       res.status(500).send({ message: 'Error updating person', error: error.message });
     }
@@ -152,7 +168,8 @@ router.post("/person", (req, res) => {
   const newPerson = new Person({
     name: req.body.name,
     votes: [],
-    imagesrc: "https://res.cloudinary.com/ddn3ylwye/image/upload/v1750954508/noimage_yzjquz.jpg"
+    imagesrc: "https://res.cloudinary.com/ddn3ylwye/image/upload/v1750954508/noimage_yzjquz.jpg",
+    commentCount: 0
   });
 
   newPerson.save().then(async (savedPerson) => {
@@ -222,8 +239,8 @@ router.put('/unvote', async (req, res) => {
     );
 
     if (!updatedPerson) {
-        return res.status(404).send({ message: "Person not found" });
-      }
+      return res.status(404).send({ message: "Person not found" });
+    }
 
     res.send(updatedPerson);
   } else {

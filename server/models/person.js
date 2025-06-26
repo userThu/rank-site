@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const PersonSchema = new mongoose.Schema({
   name: String,
   votes: [String],
-  imagesrc: String
+  imagesrc: String,
+  commentCount: Number
 });
 
 // compile model from schema
