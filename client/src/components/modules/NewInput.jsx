@@ -17,13 +17,14 @@ const NewInput = (props) => {
         e.preventDefault();
         props.onSubmit && props.onSubmit(input);
         setInput("");
+        document.getElementById('input').value = '';
     }
 
     return (
         <div>
             <Form>
                 <Row className="row-container">
-                    <Col><Form.Control as="textarea" rows={4} placeholder="Comment" onChange={handleChange}/></Col>
+                    <Col><Form.Control id='input' as="textarea" rows={4} placeholder="Comment" onChange={handleChange}/></Col>
                     <Col md="auto"><Button onClick={handleSubmit} className="button">Submit</Button></Col>
                 </Row>
             </Form>
