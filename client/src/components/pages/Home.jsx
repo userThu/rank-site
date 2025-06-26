@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+
 import PersonCard from "../modules/PersonCard";
 import NewPerson from "../modules/NewPerson";
+import SortList from "../modules/SortList";
+
 import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,15 +17,31 @@ const Home = () => {
 
     // called when "Home" component mounts
     useEffect(() => {
+        getPeople();
+    }, []);
+
+    const getPeople = () => {
         get("/api/people").then((peopleObjs) => {
             setPeople(peopleObjs);
         });
-    }, []);
+    }
 
     const addNewPerson = (personName) => {
         post("/api/person", {name: personName}).then((person) => {
             setPeople(people.concat([person]));
-        })
+        });
+    }
+
+    const handleAlph = () => {
+        const sortedPeople = [...people].sort((p1, p2) =>
+            p1.name.localeCompare(p2.name, undefined, { sensitivity: 'base' })
+        );
+        setPeople(sortedPeople);
+    }
+
+    const handleLack = () => {
+        const sortedPeople = [...people].sort((p1, p2) => p1.commentCount - p2.commentCount);
+        setPeople(sortedPeople);
     }
 
     let peopleList = null;
@@ -52,7 +71,10 @@ const Home = () => {
                 <Col className="new-button"><NewPerson addNewPerson={addNewPerson}/></Col>
             </Row>
             <hr className="break"/>
-            <div className="evil-container">{peopleList}</div>
+            <SortList handleAlph={handleAlph} handleDate={getPeople} handleLack={handleLack} className="sort-list"/>
+            <div className="evil-container">
+                {peopleList}
+            </div>
         </Container>
     );
 

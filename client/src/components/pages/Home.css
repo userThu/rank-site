@@ -28,6 +28,10 @@
     border-radius: 5px;
 }
 
+.evil-container {
+    margin-top: 1rem;
+}
+
 .col-container {
     display: flex;
     justify-content: center;
@@ -46,4 +50,3 @@
 .evil-a{
     color: #eb5e28 !important;
 }
-
