@@ -1,10 +1,12 @@
 import React, { useState, useEffect, createContext } from "react";
 import NavBar from "../components/modules/NavBar";
+import Footer from "./modules/Footer";
 import { Outlet } from "react-router-dom";
 
 import jwt_decode from "jwt-decode";
 
 import "../utilities.css";
+import "./App.css"
 
 import { socket } from "../client-socket";
 
@@ -49,11 +51,14 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="page-wrapper">
       <NavBar handleLogin={handleLogin} handleLogout={handleLogout} user={user}/>
       <UserContext.Provider value={authContextValue}>
-        <Outlet />
+        <main className="content-wrap">
+          <Outlet />
+        </main>
       </UserContext.Provider>
+      <Footer />
     </div>
   );
 };
