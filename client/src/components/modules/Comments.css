@@ -1,0 +1,15 @@
+.comment-list-container {
+    background-color: #403d39;
+    border-radius: 8px;
+    padding: 1rem;
+    max-height: 100%;
+    height: 32rem;
+    overflow-y: scroll;
+    padding: 1rem 2rem;
+}
+
+.unlogged-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}

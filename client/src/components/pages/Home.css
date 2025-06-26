@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.container {
+    color: #fffcf2;
+    font-family: 'Montserrat';
+}
+
+.subheading-container {
+    display: flex;
+    align-items: center;
+}
+
+.subheading {
+    margin-bottom: 0;
+}
+
+.new-button {
+    display: flex;
+}
+
+.row-container {
+    padding: 2rem 0;
+    margin-top: 1rem !important;
+}
+
+.break {
+    border-top: 2px solid #fffcf2;
+    border-radius: 5px;
+}
+
+.col-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.card {
+    background-color: #403d39 !important;
+    color: #fffcf2 !important;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.evil-a{
+    color: #eb5e28 !important;
+}
+

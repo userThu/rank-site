@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.Navbar-container {
+    background-color: #eb5e28;
+    font-weight: bold;
+    filter: drop-shadow(5px 5px 20px #000000)
+}
+
+.brand-container {
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.brand-container:hover {
+    background-color: #d85724;
+}
+
+.logo-img {
+    width: 56px;
+    height: 40px;
+    content: url("../../public/logo.png");
+    margin-right: 1rem;
+}
+
+.log-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 0 !important;
+}
+
+.logout-button {
+    background-color: #252422 !important;
+    border: none !important;
+    color: #fffcf2 !important;
+    font-family: 'Montserrat' !important;
+}
+
+.logout-button:hover {
+    background-color: #1d1c1b !important;
+}
+
+.greetings {
+    padding-right: 1rem;
+}

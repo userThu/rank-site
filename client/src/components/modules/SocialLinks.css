@@ -1,0 +1,66 @@
+.row {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.25rem;
+}
+
+.upload-link:hover {
+    background-color: #403d39;
+}
+
+.link {
+    content: url("../../public/link.png");
+    height: 16px;
+    width: 16px;
+}
+
+.link-col {
+    height: 100%;
+    width: 100%;
+}
+
+.link-col:hover {
+    cursor: pointer;
+}
+
+.instagram-container {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.instagram {
+    content: url("../../public/instagram.png");
+    height: 100%;
+    width: 100%;
+}
+
+.tiktok-container {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.tiktok {
+    content: url("../../public/tiktok.png");
+    height: 100%;
+    width: 100%;
+}
+
+.col-xl-auto {
+    padding: 0 !important;
+}
+
+.text {
+    margin: 0 0.25rem !important;
+    text-decoration: underline;
+}
+
+.other-container {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.other {
+    content: url("../../public/other.png");
+    height: 100%;
+    width: 100%;
+}
