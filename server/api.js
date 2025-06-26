@@ -36,9 +36,9 @@ const multer = require("multer");
 const upload = multer();
 
 cloudinary.config({
-  cloud_name: "ddn3ylwye",
-  api_key: "845567364217261",
-  api_secret: "Exr9sXKVkKCKFhNgwGXnjZoMWwc",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
 
 router.post("/login", auth.login);
