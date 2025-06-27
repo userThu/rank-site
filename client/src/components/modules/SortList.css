@@ -3,3 +3,8 @@
 .dropdown {
     font-family: 'Montserrat';
 }
+
+.toggle {
+    height: 20px;
+    width: 20px;
+}

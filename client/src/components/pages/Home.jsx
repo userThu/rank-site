@@ -44,6 +44,16 @@ const Home = () => {
         setPeople(sortedPeople);
     }
 
+    const handleVote = () => {
+        const sortedPeople = [...people].sort((p1, p2) => p2.votes.length - p1.votes.length);
+        setPeople(sortedPeople);
+    }
+
+    const handleFlip = () => {
+        const reversedPeople = [...people].reverse();
+        setPeople(reversedPeople);
+    }
+ 
     let peopleList = null;
     const hasPeople = people.length !== 0;
     if (hasPeople) {
@@ -71,7 +81,14 @@ const Home = () => {
                 <Col className="new-button"><NewPerson addNewPerson={addNewPerson}/></Col>
             </Row>
             <hr className="break"/>
-            <SortList handleAlph={handleAlph} handleDate={getPeople} handleLack={handleLack} className="sort-list"/>
+            <SortList 
+                handleAlph={handleAlph} 
+                handleDate={getPeople} 
+                handleLack={handleLack} 
+                handleVote={handleVote} 
+                handleFlip={handleFlip} 
+                lassName="sort-list"
+            />
             <div className="evil-container">
                 {peopleList}
             </div>
